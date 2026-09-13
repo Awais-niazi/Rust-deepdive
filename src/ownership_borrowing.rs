@@ -32,6 +32,26 @@ pub fn run() {
     // Borrowing from a vector by slice
     let numbers = vec![10, 20, 30, 40];
     println!("Sum of numbers: {}", sum(&numbers));
+
+    // Common compile-time ownership/borrowing mistakes:
+    // Uncomment these blocks one at a time to see the compiler error they trigger.
+    // 1) Using a value after it has been moved.
+    // let moved_value = String::from("bad");
+    // let another_owner = moved_value;
+    // println!("{}", moved_value);
+
+    // 2) Mutating a value while an immutable reference is still active.
+    // let mut text = String::from("hello");
+    // let r = &text;
+    // text.push('!');
+    // println!("{}", r);
+
+    // 3) Having two mutable references to the same value at once.
+    // let mut numbers = vec![1, 2, 3];
+    // let a = &mut numbers;
+    // let b = &mut numbers;
+    // a.push(4);
+    // b.push(5);
 }
 
 fn takes_ownership(value: String) {
