@@ -1,4 +1,5 @@
 mod ownership_borrowing;
+mod spawn_join;
 
 fn main() {
     // Variables (immutable by default, unlike Python)
@@ -18,4 +19,5 @@ fn main() {
     println!("x: {}, y: {}, z: {}", x, y, z);
 
     ownership_borrowing::run();
+    spawn_join::run();
 }
