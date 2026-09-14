@@ -7,6 +7,7 @@ mod mutex_example;
 mod option_result_example;
 mod ownership_borrowing;
 mod real_async_example;
+mod rust_cheatsheet;
 mod spawn_join;
 mod trait_example;
 
@@ -37,6 +38,7 @@ fn main() {
     option_result_example::run();
     enums_pattern_matching::run();
     collections_example::run();
+    rust_cheatsheet::run();
 
     let runtime = tokio::runtime::Runtime::new().unwrap();
     runtime.block_on(real_async_example::run());
