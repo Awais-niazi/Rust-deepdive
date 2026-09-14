@@ -5,6 +5,7 @@ mod mutex_example;
 mod ownership_borrowing;
 mod real_async_example;
 mod spawn_join;
+mod trait_example;
 
 fn main() {
     // Variables (immutable by default, unlike Python)
@@ -29,6 +30,7 @@ fn main() {
     mutex_example::run();
     advanced_concepts::run();
     async_await_example::run();
+    trait_example::run();
 
     let runtime = tokio::runtime::Runtime::new().unwrap();
     runtime.block_on(real_async_example::run());
