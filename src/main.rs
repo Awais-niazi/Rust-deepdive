@@ -2,6 +2,7 @@ mod advanced_concepts;
 mod async_await_example;
 mod channel_example;
 mod mutex_example;
+mod option_result_example;
 mod ownership_borrowing;
 mod real_async_example;
 mod spawn_join;
@@ -31,6 +32,7 @@ fn main() {
     advanced_concepts::run();
     async_await_example::run();
     trait_example::run();
+    option_result_example::run();
 
     let runtime = tokio::runtime::Runtime::new().unwrap();
     runtime.block_on(real_async_example::run());
