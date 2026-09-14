@@ -32,6 +32,36 @@ fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
     }
 }
 
+// A struct that stores borrowed data. The lifetime parameter ensures
+// the references inside the struct are valid for as long as the Profile exists.
+struct Profile<'a> {
+    name: &'a str,
+    headline: &'a str,
+    bio: &'a str,
+}
+
+impl<'a> Profile<'a> {
+    fn new(name: &'a str, headline: &'a str, bio: &'a str) -> Self {
+        Self {
+            name,
+            headline,
+            bio,
+        }
+    }
+
+    fn summary(&self) -> &str {
+        self.headline
+    }
+}
+
+fn select_profile<'a>(left: &'a Profile<'a>, right: &'a Profile<'a>) -> &'a str {
+    if left.name.len() > right.name.len() {
+        left.name
+    } else {
+        right.name
+    }
+}
+
 // Generic function with trait bounds.
 fn print_item<T: Display + Summary>(item: &T) {
     println!("Summary: {} | Value: {}", item.summarize(), item);
@@ -45,6 +75,21 @@ pub fn run() {
     let second = "a much longer string";
     let result = longest(first, second);
     println!("Longest text: {}", result);
+
+    // A realistic lifetime example with a struct containing borrowed data.
+    let dev_profile = Profile::new(
+        "Awais",
+        "Rust Engineer",
+        "Learning ownership, borrowing, and lifetimes in Rust.",
+    );
+    let writer_profile = Profile::new(
+        "Zain",
+        "Technical Writer",
+        "Explains systems clearly to beginners and experts.",
+    );
+
+    println!("Developer headline: {}", dev_profile.summary());
+    println!("Selected profile name: {}", select_profile(&dev_profile, &writer_profile));
 
     // Trait example
     let report = Report {
