@@ -1,6 +1,7 @@
 mod advanced_concepts;
 mod async_await_example;
 mod channel_example;
+mod enums_pattern_matching;
 mod mutex_example;
 mod option_result_example;
 mod ownership_borrowing;
@@ -33,6 +34,7 @@ fn main() {
     async_await_example::run();
     trait_example::run();
     option_result_example::run();
+    enums_pattern_matching::run();
 
     let runtime = tokio::runtime::Runtime::new().unwrap();
     runtime.block_on(real_async_example::run());
