@@ -1,4 +1,5 @@
 mod advanced_concepts;
+mod async_await_example;
 mod channel_example;
 mod mutex_example;
 mod ownership_borrowing;
@@ -26,4 +27,5 @@ fn main() {
     channel_example::run();
     mutex_example::run();
     advanced_concepts::run();
+    async_await_example::run();
 }
