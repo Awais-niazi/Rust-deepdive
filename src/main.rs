@@ -1,6 +1,7 @@
 mod advanced_concepts;
 mod async_await_example;
 mod channel_example;
+mod collections_example;
 mod enums_pattern_matching;
 mod mutex_example;
 mod option_result_example;
@@ -35,6 +36,7 @@ fn main() {
     trait_example::run();
     option_result_example::run();
     enums_pattern_matching::run();
+    collections_example::run();
 
     let runtime = tokio::runtime::Runtime::new().unwrap();
     runtime.block_on(real_async_example::run());
