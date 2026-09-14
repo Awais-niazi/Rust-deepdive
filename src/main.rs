@@ -1,3 +1,4 @@
+mod advanced_concepts;
 mod channel_example;
 mod mutex_example;
 mod ownership_borrowing;
@@ -24,4 +25,5 @@ fn main() {
     spawn_join::run();
     channel_example::run();
     mutex_example::run();
+    advanced_concepts::run();
 }
